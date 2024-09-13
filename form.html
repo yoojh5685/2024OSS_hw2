@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <h1>Dynamic Web page</h1>
+    <br>
+    <input type="text" id="input_append" />
+    <button id="add_button" onclick="listener_append()">추가</button>
+    <button id="delete_button" onclick="delete_all()">전체 삭제</button>
+    <ul id="ul_append">
+        <!-- 리스트 항목이 여기에 추가됨 -->
+    </ul>
+
+
+
+
+    <script>
+        function listener_append() {
+            // 1. 'ul_append'라는 ID를 가진 HTML 요소(ul 리스트)를 찾음.
+            let ul_append = document.getElementById("ul_append");
+
+            // 2. 'input_append'라는 ID를 가진 입력 필드에서 사용자가 입력한 값을 가져옴.
+            let input_append = document.getElementById("input_append").value;
+
+            // 3. 입력 필드가 빈 값이거나 "undefined"일 경우 함수를 종료함.
+            if (input_append === "" || input_append == "undefined") {
+                return false;  // 아무 작업도 하지 않음.
+            }
+
+            // 4. 'ul_append'에 새로운 li 요소를 추가하고, 이 요소에는 사용자가 입력한 값이 표시됨.
+            //    또한, 새로 생성된 li 요소에 'onclick' 이벤트 핸들러가 추가되어, 클릭 시 'listener_remove' 함수를 호출함.
+            ul_append.innerHTML += "<li onclick='listener_remove(this)'>" + input_append + "</li>";
+
+            // 5. 입력 필드의 값을 비워서, 사용자가 다시 입력할 수 있도록 함.
+            document.getElementById("input_append").value = "";
+        }
+            // 위에서 this로 보낸 값을 obj로 받고 여기서 그 내용 remove.
+        function listener_remove(obj) {
+            obj.remove();
+        }
+
+        function delete_all() {
+            let div_append = document.getElementById("ul_append");
+            div_append.innerHTML = "";      // 아래쪽에 추가된 내용 삭제.
+            document.getElementById("input_append").value = "";     //이건 텍스트박스 안에 내용도 삭제.
+        }
+        // window.onload로 페이지가 로드된 후에 실행할 코드를 추가
+        window.onload = function() {
+            // 페이지가 로드된 후에 실행할 작업을 여기에서 처리
+            console.log("Page is fully loaded");
+            document.getElementById("input_append").focus(); // 페이지 로드 후 입력 필드에 자동으로 포커스 설정
+        };
+    </script>
+
+
+</body>
+
+</html>

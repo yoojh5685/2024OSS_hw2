@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 중앙 */ 
+    min-height: 10vh; /*위에서부터 떨어지는 정도*/
+    margin: 0; /*기본 마진 없애면서 내가 마진 조절 편하게 하기 위해서*/
+}
+
+input#input_append {
+    margin: 10px;
+}
+#add_button{
+    background-color: skyblue;
+}
+
+#add_button:hover{
+    background-color: blue;
+}
+
+#delete_button{
+    background-color: lightcoral;
+}
+#delete_button:hover{
+    background-color: red;
+}
