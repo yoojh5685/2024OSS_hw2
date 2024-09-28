@@ -15,12 +15,11 @@ body {
 
 .table-title {
     padding-bottom: 15px;
-    background: #435d7d;
+    background: #d4a518;
     color: #fff;
     padding: 16px 30px;
     margin: -20px -25px 10px;
     border-radius: 3px 3px 0 0;
-    width: 100%;
 }
 
 .table-title h2 {
@@ -91,13 +90,12 @@ table.table th:last-child {
 @media only screen and (max-width: 767px) {
     .table-wrapper {
         padding: 10px;
-        width: 100%;
     }
     
     .table-title {
         padding: 10px 30px;
         color: aqua;
-        /* width: 100%;  */
+        /* width: 100%; */
     }
     
     .table-title h2 {
@@ -162,24 +160,112 @@ table.table th:last-child {
 }
 
 /* 여기서부턴 add화면 */
-
-.modal-title{
-    font-size: 30px;
-    margin: 20px;
-}
-.modal-header{
-    width: 200px;
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #f8f9fa;
 }
 
-.form-group{
-    font-size: 20px;
-    /* height: 40px; */
-    margin: 20px;
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.modal-footer{
-    margin: 20px;
+.modal-header {
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #28a745;
 }
-.form-check-label{
-    font-size: 15px;
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: none;
+}
+
+.gender-check {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.form-check-label {
+    font-size: 16px;
+    color: #495057;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 20px 30px;
+    text-align: right;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-default {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: #5a6268;
+}
+
+input::placeholder {
+    font-style: italic;
+    color: #6c757d;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+textarea.form-control {
+    resize: none;
+    min-height: 100px;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 600px;
+    }
 }
