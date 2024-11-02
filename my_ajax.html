@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<r>
+
+    <button onclick="getDataFromJSONFile()">get DATA</button> <br>
+    NAME : <input type="text" id="student_name" /> <br>
+    AGE : <input type="number" id="student_age" /> <br>
+    Gender : <input type="text" id="student_gender" /> <br>
+    height : <input type="number" id="student_height" /> <br>
+    weight : <input type="number" id="student_weight" />
+    <button onclick="createDataToJSONFile()">create DATA</button> <br>
+    ID : <input type="text" id="student_id" />
+    <button onclick="updateDataToJSONFile()">update DATA</button> <br>
+    ID : <input type="text" id="studentdelete_id" />
+    <button onclick="deleteDataToJSONFile()">Delete DATA</button>
+
+    <div id="div_students"></div>
+
+    
+
+    <script>
+
+         function getDataFromJSONFile(){
+
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "http://localhost:3001/students"); 
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send();
+        xhr.onload = () => { 
+            //alert(JSON.stringify(xhr));
+            if(xhr.status === 200){
+                $("#div_students").html("");
+                //alert(JSON.stringify(xhr.response));
+                let students = JSON.parse(xhr.response);
+                //alert(students.length);
+                students.forEach((item) => {
+                    $("#div_students").append("<div>" + item.id + " " + item.name + " " + item.age + " " + item.gender + " " + item.height + " " + item.weight + "</div>");
+                });
+            }
+        } 
+        }    
+ 
+        function createDataToJSONFile(){
+            const xhr = new XMLHttpRequest(); 
+            xhr.open("POST", "http://localhost:3001/students"); 
+            xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+            let data = {name:$("#student_name").val(), age:$("#student_age").val(), gender:$("#student_gender").val(),height:$("#student_height").val(), weight:$("#student_weight").val()};
+
+            xhr.send(JSON.stringify(data));
+            xhr.onload = () => { 
+                if(xhr.status === 201){
+                    alert("등록 성공!");
+                    getDataFromJSONFile();
+                }
+                //document.getElementById("demo").innerHTML = this.responseText; 
+            } 
+        }
+
+
+        function updateDataToJSONFile(){
+            let id = $("#student_id").val();
+            alert(id);
+            const xhr = new XMLHttpRequest(); 
+            xhr.open("PUT", "http://localhost:3001/students/" + id); 
+            xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+            let data = {name:$("#student_name").val(), age:$("#student_age").val(), gender:$("#student_gender").val(),height:$("#student_height").val(), weight:$("#student_weight").val()};
+
+            xhr.send(JSON.stringify(data));
+            xhr.onload = () => { 
+                alert(xhr.status);
+                if(xhr.status === 200){
+                    alert("수정 성공!");
+                    getDataFromJSONFile();
+                }
+                //document.getElementById("demo").innerHTML = this.responseText; 
+            } 
+        }
+
+        function deleteDataToJSONFile(){
+            let id = $("#studentdelete_id").val();
+            alert(id);
+            const xhr = new XMLHttpRequest(); 
+            xhr.open("DELETE", "http://localhost:3001/students/" + id); 
+            xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+            xhr.send();
+            xhr.onload = () => { 
+                alert(xhr.status);
+                if(xhr.status === 200){
+                    alert("수정 성공!");
+                    getDataFromJSONFile();
+                }
+                //document.getElementById("demo").innerHTML = this.responseText; 
+            } 
+        }
+
+
+
+
+
+        $(document).ready(function () {
+            $("#div_hide").click(function () {
+                $(this).hide();
+            });
+            $("#div_css").click(function () {
+                $(this).css("color", "red");
+            });
+            $("#div_moving").click(function () {
+                $("#div_moving2").animate({ left: "250px" });
+            });
+        });
+
+        // setInterval() => {
+        //     top_position_way !=top_position_way
+        //     if(top_position_way)
+        //         $
+        // }
+    </script>
+</body>
+
+</html>

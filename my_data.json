@@ -1,0 +1,92 @@
+{
+  "students": [
+    {
+      "name": "정다솔",
+      "age": "11",
+      "gender" : "Female",
+      "height": "180",
+      "weight": "90",
+      "id": "1"
+    },
+    {
+        "name": "유재혁",
+        "age": "23",
+        "gender" : "Male",
+        "height": "170",
+        "weight": "65",
+        "id": "2"
+      },
+      {
+        "name": "김태민",
+        "age": "25",
+        "gender" : "Male",
+        "height": "180",
+        "weight": "70",
+        "id": "3"
+      },
+      {
+        "name": "유소영",
+        "age": "21",
+        "gender" : "Female",
+        "height": "155",
+        "weight": "49",
+        "id": "4"
+      },
+      {
+        "name": "이찬용",
+        "age": "23",
+        "gender" : "Male",
+        "height": "172",
+        "weight": "80",
+        "id": "5"
+      },
+      {
+        "name": "박준현",
+        "age": "30",
+        "gender" : "Male",
+        "height": "177",
+        "weight": "69",
+        "id": "6"
+      },
+      {
+          "name": "봉민석",
+          "age": "27",
+          "gender" : "Male",
+          "height": "181",
+          "weight": "82",
+          "id": "7"
+        },
+        {
+          "name": "황유민",
+          "age": "22",
+          "gender" : "Female",
+          "height": "160",
+          "weight": "51",
+          "id": "8"
+        },
+        {
+          "name": "조예은",
+          "age": "23",
+          "gender" : "Female",
+          "height": "150",
+          "weight": "43",
+          "id": "9"
+        },
+        {
+          "name": "이시온",
+          "age": "24",
+          "gender" : "Male",
+          "height": "178",
+          "weight": "70",
+          "id": "10"
+        },
+        {
+            "name": "김현중",
+            "age": "26",
+            "gender" : "Male",
+            "height": "180",
+            "weight": "85",
+            "id": "11"
+          }
+  ]
+}
